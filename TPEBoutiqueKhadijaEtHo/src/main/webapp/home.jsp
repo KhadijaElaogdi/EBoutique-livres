@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <a href="servlet?categorie=philosopie"></a>
     </body>
 </html>

@@ -8,10 +8,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+         <%@include file="head.jsp" %>
     </head>
     <body>
+        <%@include file="header.jsp" %>
+        
         <h1>Login!</h1>
         <form method="POST" action="Login">
          <div> 
@@ -24,5 +25,7 @@
          </div>
          <button type="submit">Login</button>
         </form>
+        
+        <%@include file="footer.jsp" %>
     </body>
 </html>
