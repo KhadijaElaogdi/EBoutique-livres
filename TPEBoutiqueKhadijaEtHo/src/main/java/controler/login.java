@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSession;
  * @author isi
  */
 @WebServlet(name = "LivreServlet", urlPatterns = {"/Login"})
-public class LivreServlet extends HttpServlet {
+public class login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -48,7 +48,7 @@ public class LivreServlet extends HttpServlet {
             ResultSet result = preparedStatement.executeQuery();
             if(result.next()){
                 session.setAttribute("uname",uname);
-                resp.sendRedirect("index.html");
+                resp.sendRedirect("productsConnect.jsp");
             }
             else{
                 resp.sendRedirect("login.jsp");
