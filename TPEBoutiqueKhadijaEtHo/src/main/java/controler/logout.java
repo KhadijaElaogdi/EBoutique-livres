@@ -22,7 +22,12 @@ public class logout extends HttpServlet {
 
       protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
           HttpSession session = req.getSession();
-          session.removeAttribute("uname");
-          resp.sendRedirect("login.jsp");
+          //session.removeAttribute("uname");
+          //resp.sendRedirect("login.jsp");
+          session.invalidate();
+
+          /* Redirection vers le Site du Zéro ! */
+          resp.sendRedirect("products.jsp");
+          
       }
 }

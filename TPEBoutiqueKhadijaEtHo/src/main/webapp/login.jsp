@@ -14,6 +14,15 @@
         <%@include file="header.jsp" %>
         
         <h1>Login!</h1>
+        <%
+             String msg = "";
+             if(session.getAttribute("msg") != null){
+               msg = session.getAttribute("msg").toString();
+               %><h3 style="color: red"><%=msg %></h3>
+               <%
+               }
+        %>
+         
         <form method="POST" action="Login">
          <div> 
          <label for="uname"><b>Username</b></label>
@@ -23,6 +32,7 @@
          <label for="psw"><b>Password</b></label>
          <input type="password" placeholder="Entrer Password" name="psw" required>
          </div>
+            <!-- comment<input type="hidden" name ="msg" value="Login"/> -->
          <button type="submit">Login</button>
         </form>
         

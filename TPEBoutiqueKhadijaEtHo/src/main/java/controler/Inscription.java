@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,14 +22,23 @@ import javax.servlet.http.HttpSession;
  *
  * @author isi
  */
-@WebServlet(name = "LivreServlet", urlPatterns = {"/Login"})
-public class login extends HttpServlet {
-    @Override
+@WebServlet(name = "Inscription", urlPatterns = {"/Inscription"})
+public class Inscription extends HttpServlet {
+
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
+         HttpSession session = req.getSession();
         try{
+        String nom = req.getParameter("nom");
         String uname = req.getParameter("uname");
         String psw = req.getParameter("psw");
+        String pswRepeat = req.getParameter("psw-repeat");
+        String email = req.getParameter("email");
+        String adresse = req.getParameter("adresse");
+        String tel = req.getParameter("tel");
+        String genre = req.getParameter("genre");
+        String dateNaiss = req.getParameter("dateNaiss");
+        
+        RequestDispatcher dispatcher = null;
             
         Class.forName("org.mariadb.jdbc.Driver");  //charger le diver MariaDB
         String urlServeur="jdbc:mariadb://localhost:3310/bdEBoutiqueLivres";
@@ -40,24 +50,36 @@ public class login extends HttpServlet {
             Connection connection = DriverManager.getConnection(urlServeur, identifiant, motDePasse);
             
             //on a fait le code pre
-            String query = "SELECT idClient FROM clients WHERE prenom = ? and password = ?";
+            String query = "INSERT INTO clients (nom, prenom, password, email, adresse, tel, genre, dateNaissance) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, uname); // permet de remplacer le premier ?
-            preparedStatement.setString(2, psw); // permet de remplacer le deuxième ?
+            preparedStatement.setString(1, nom); 
+            preparedStatement.setString(2, uname); 
+            preparedStatement.setString(3, psw); 
+            preparedStatement.setString(4, email);
+            preparedStatement.setString(5, adresse);
+            preparedStatement.setString(6, tel);
+            preparedStatement.setString(7, genre);
+            preparedStatement.setString(8, dateNaiss);
             
-            ResultSet result = preparedStatement.executeQuery();
-            if(result.next()){
+            int nombreLigne = preparedStatement.executeUpdate();
+            dispatcher = req.getRequestDispatcher("inscription.jsp");
+            if(psw.equals(pswRepeat)){
+                 if(nombreLigne > 0){
+                //req.setAttribute("message", "Success");
                 session.setAttribute("uname",uname);
                 resp.sendRedirect("productsConnect.jsp");
+               }
             }
             else{
-                session.setAttribute("msg","UserName ou Mot de passe erroné !");
-                resp.sendRedirect("login.jsp");
+                session.setAttribute("message", "Echoué");
+                resp.sendRedirect("inscription.jsp");
             }
+           dispatcher.forward(req, resp);
             connection.close();
         }
         catch(Exception e){
             System.out.print(e);
         }
     }
+
 }
