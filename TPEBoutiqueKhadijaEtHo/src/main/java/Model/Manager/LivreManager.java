@@ -2,12 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Model;
+package Model.Manager;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author isi
  */
-public class Commande {
+public class LivreManager {
+    
+    
+    
+    
+    
     
 }

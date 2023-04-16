@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : 8 avr. 2023, 04 h 12 min 39 s
+    Document   : inscription
+    Created on : Apr 14, 2023, 7:52:19 AM
     Author     : isi
 --%>
 
@@ -8,11 +8,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <%@include file="head.jsp" %>
+        <%@include file="head.jsp" %>
     </head>
     <body>
         <%@include file="header.jsp" %>
-        
         <h1>Login!</h1>
         <%
              String msg = "";
@@ -35,7 +34,15 @@
             <!-- comment<input type="hidden" name ="msg" value="Login"/> -->
          <button type="submit">Login</button>
         </form>
-        
+
         <%@include file="footer.jsp" %>
     </body>
 </html>
+
+        
+        
+        
+        
+        
+
+
