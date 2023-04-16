@@ -16,7 +16,7 @@ import java.util.logging.Logger;
  * @author isi
  */
 
-public class ConnexionManager {
+public class ConnectionManager {
 
     private static String login = "root";
     private static String password = "abc123...";
@@ -29,7 +29,7 @@ public class ConnexionManager {
             connection = DriverManager.getConnection(urlServeur, login, password);
             preparedStatement = connection.prepareStatement(query);
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ConnexionManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionManager.class.getName()).log(Level.SEVERE, null, ex);
         }
         return preparedStatement;
     }
@@ -37,7 +37,7 @@ public class ConnexionManager {
         try {
             connection.close();
         } catch (SQLException ex) {
-            Logger.getLogger(ConnexionManager.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ConnectionManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
