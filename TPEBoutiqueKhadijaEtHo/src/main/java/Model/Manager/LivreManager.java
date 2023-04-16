@@ -4,10 +4,17 @@
  */
 package Model.Manager;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author isi
  */
 public class LivreManager {
+    
+    
+    
+    
+    
     
 }
