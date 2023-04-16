@@ -67,7 +67,7 @@ public class Inscription extends HttpServlet {
                  if(nombreLigne > 0){
                 //req.setAttribute("message", "Success");
                 session.setAttribute("uname",uname);
-                resp.sendRedirect("productsConnect.jsp");
+                resp.sendRedirect("login.jsp");
                }
             }
             else{
