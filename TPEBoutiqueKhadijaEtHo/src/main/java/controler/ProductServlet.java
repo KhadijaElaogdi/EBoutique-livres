@@ -28,7 +28,6 @@ public class ProductServlet extends HttpServlet{
 
     }
 
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse respone) throws ServletException, IOException {
 
@@ -41,15 +40,16 @@ public class ProductServlet extends HttpServlet{
         if (actionParam == null) {
             System.out.println("Will getAll() and return the list later");
             listLivre = livreManager.getAllLives();
-            request.setAttribute("listLivre", listLivre);
+            
 
         } else {
             System.out.println("[doget] si pas null do some thing");
+            listLivre = livreManager.getListLivreByCategorie(actionParam);
         }
 
         //3 set attribute
         System.out.println("Set attribute");
-        
+        request.setAttribute("listLivre", listLivre);
 
         //4 redirection
         System.out.println("Redirect");

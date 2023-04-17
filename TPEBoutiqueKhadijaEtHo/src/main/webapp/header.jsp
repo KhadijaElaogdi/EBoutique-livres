@@ -24,14 +24,14 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="login.jsp">Login</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="inscription.jsp">Sign up</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="ProductServlet" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="productServlet" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!--<li><hr class="dropdown-divider" /></li>-->
                                 <li><a class="dropdown-item" href="productServlet">Tous</a></li>
-                                <li><a class="dropdown-item" href="ProductServlet?action=economique">Economique</a></li>
-                                <li><a class="dropdown-item" href="ProductServlet?action=litterature">Litterature</a></li>
-                                <li><a class="dropdown-item" href="ProductServlet?action=philosophie">Philosophie</a></li>
-                                <li><a class="dropdown-item" href="ProductServlet?action=philosophie">Histoire</a></li>
+                                <li><a class="dropdown-item" href="productServlet?action=eco123">Economique</a></li>
+                                <li><a class="dropdown-item" href="productServlet?action=litt123">Litterature</a></li>
+                                <li><a class="dropdown-item" href="productServlet?action=philos123">Philosophie</a></li>
+                                <li><a class="dropdown-item" href="productServlet?action=hist123">Histoire</a></li>
                             </ul>
                         </li>
                     </ul>

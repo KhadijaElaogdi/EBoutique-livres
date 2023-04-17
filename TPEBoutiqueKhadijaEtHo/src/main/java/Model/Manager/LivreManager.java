@@ -19,7 +19,6 @@ import java.util.logging.Logger;
 public class LivreManager {
 
     public ArrayList<Livre> getAllLives() {
-        System.out.println("[LivreManager] dans getAllLives: ");
         ArrayList<Livre> lives = null;
         String query = "select * from livres";
         PreparedStatement preparedStatement = ConnectionManager.getPs(query);
@@ -29,14 +28,37 @@ public class LivreManager {
             if (resultSet.isBeforeFirst()) {
                 lives = new ArrayList<>();
                 while (resultSet.next()) {
-                     lives.add(new Livre(resultSet));
+                    lives.add(new Livre(resultSet));
                 }
             }
         } catch (SQLException ex) {
             Logger.getLogger(LivreManager.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
         ConnectionManager.close();
         return lives;
+    }
+
+    public ArrayList<Livre> getListLivreByCategorie(String categorie) {
+        ArrayList<Livre> lives = null;
+        String query = "select * from livres where idCategorie like ?";
+        PreparedStatement preparedStatement = ConnectionManager.getPs(query);
+
+        try {
+            preparedStatement.setString(1, categorie);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            //permet de savoir s il y a des données dans le resultset
+            if (resultSet.isBeforeFirst()) {
+                lives = new ArrayList<>();
+                while (resultSet.next()) {
+                    lives.add(new Livre(resultSet));
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LivreManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ConnectionManager.close();
+        return lives;
+
     }
 
 }
