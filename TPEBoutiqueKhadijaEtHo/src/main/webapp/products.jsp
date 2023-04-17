@@ -17,7 +17,6 @@
         <%@include file="head.jsp" %>
     </head>
     <body>
-<<<<<<< HEAD
         <% 
      if(session.getAttribute("uname") != null){%>
        <%@include file="headerConnect.jsp" %>
@@ -26,14 +25,7 @@
        <%@include file="header.jsp" %>
      <%}
       %>
-        
-       <!-- Section-->
-=======
-        <%@include file="header.jsp" %>
-        <h1>Hello World!</h1>
-
         <!-- Section-->
->>>>>>> a57fcd4d8dcdfe8a03f39ec3bfaf8860e6d27133
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
