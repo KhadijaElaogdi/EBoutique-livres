@@ -4,6 +4,9 @@
  */
 package Model.Entity;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 /**
  *
@@ -22,15 +25,15 @@ public class Livre {
     public Livre() {
     }
 
-    public Livre(String idLivre, String titleProd, String discriptionProd, String marque, double prix, String date, String imageLivre, String idCatg) {
-        this.idLivre = idLivre;
-        this.titleProd = titleProd;
-        this.discriptionProd = discriptionProd;
-        this.marque = marque;
-        this.prix = prix;
-        this.date = date;
-        this.imageLivre = imageLivre;
-        this.idCatg = idCatg;
+    public Livre(ResultSet result) throws SQLException{
+        idLivre = result.getString("idLivre");
+        titleProd = result.getString("libelleProd");
+        discriptionProd = result.getString("descriptionProduit");
+        marque = result.getString("marque");
+        prix = result.getDouble("prix");
+        date = result.getString("dateParution");
+        imageLivre = result.getString("imageLivre");
+        idCatg = result.getString("idCategorie");
     }
 
     public String getIdLivre() {

@@ -8,6 +8,6 @@ package Model.Manager;
  *
  * @author isi
  */
-public class UserManager {
+public class ClientManager {
     
 }

@@ -4,28 +4,34 @@
  */
 package Model.Entity;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author isi
  */
 public class Commande {
-    int idCommande;
+    ArrayList<Livre>listLivres;
     String dateCommmande;
     int idClient;
+    int idCommmande;
 
     public Commande() {
     }
 
-    public Commande(String dateCommmande) {
+    public Commande(ArrayList<Livre> listLivres, String dateCommmande, int idClient, int idCommmande) {
+        this.listLivres = listLivres;
         this.dateCommmande = dateCommmande;
+        this.idClient = idClient;
+        this.idCommmande = idCommmande;
     }
 
-    public int getIdCommande() {
-        return idCommande;
+    public ArrayList<Livre> getListLivres() {
+        return listLivres;
     }
 
-    public void setIdCommande(int idCommande) {
-        this.idCommande = idCommande;
+    public void setListLivres(ArrayList<Livre> listLivres) {
+        this.listLivres = listLivres;
     }
 
     public String getDateCommmande() {
@@ -43,4 +49,14 @@ public class Commande {
     public void setIdClient(int idClient) {
         this.idClient = idClient;
     }
+
+    public int getIdCommmande() {
+        return idCommmande;
+    }
+
+    public void setIdCommmande(int idCommmande) {
+        this.idCommmande = idCommmande;
+    }
+
+    
 }

@@ -4,7 +4,10 @@
     Author     : isi
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.Entity.Livre"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,13 +24,13 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="login.jsp">Login</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="inscription.jsp">Sign up</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="ProductServlet" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!--<li><hr class="dropdown-divider" /></li>-->
-                                <li><a class="dropdown-item" href="#!">Economique</a></li>
-                                <li><a class="dropdown-item" href="#!">Litterature</a></li>
-                                <li><a class="dropdown-item" href="#!">Philosophie</a></li>
-                                <li><a class="dropdown-item" href="#!">Histoire</a></li>
+                                <li><a class="dropdown-item" href="ProductServlet?action=economique">Economique</a></li>
+                                <li><a class="dropdown-item" href="ProductServlet?action=litterature">Litterature</a></li>
+                                <li><a class="dropdown-item" href="ProductServlet?action=philosophie">Philosophie</a></li>
+                                <li><a class="dropdown-item" href="ProductServlet?action=philosophie">Histoire</a></li>
                             </ul>
                         </li>
                     </ul>
