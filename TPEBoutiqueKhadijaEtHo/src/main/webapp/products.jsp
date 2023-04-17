@@ -25,12 +25,8 @@
        <%@include file="header.jsp" %>
      <%}
       %>
-<<<<<<< HEAD
         
        <!-- Section-->
-
-=======
->>>>>>> 3daf5275b1dc5872956368b8e27f378c8dc7673b
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">

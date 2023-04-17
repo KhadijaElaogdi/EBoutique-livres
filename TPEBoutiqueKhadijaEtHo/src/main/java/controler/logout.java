@@ -27,7 +27,7 @@ public class logout extends HttpServlet {
           session.invalidate();
 
           /* Redirection vers le Site du Zéro ! */
-          resp.sendRedirect("products.jsp");
+          resp.sendRedirect("productServlet");
           
       }
 }
