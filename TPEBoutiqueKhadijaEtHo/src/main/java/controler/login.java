@@ -48,7 +48,7 @@ public class login extends HttpServlet {
             ResultSet result = preparedStatement.executeQuery();
             if(result.next()){
                 session.setAttribute("uname",uname);
-                resp.sendRedirect("productsConnect.jsp");
+                resp.sendRedirect("products.jsp");
             }
             else{
                 session.setAttribute("msg","UserName ou Mot de passe erroné !");

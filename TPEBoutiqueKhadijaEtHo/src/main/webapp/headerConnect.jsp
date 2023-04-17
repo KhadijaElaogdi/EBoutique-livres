@@ -5,6 +5,15 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% 
+    String login = "";
+     if(session.getAttribute("uname") != null){
+       login = session.getAttribute(("uname")).toString();
+     }
+     else{
+       response.sendRedirect("login.jsp");
+     }
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,14 +21,12 @@
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="#!">Ho&Khadija</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="login.jsp">Login</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="inscription.jsp">Sign up</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -41,6 +48,10 @@
                     </form>
                 </div>
             </div>
+           <div align="right">
+            Bonjour <%=login %><br>
+            <a href="logout">Logout</a> 
+           </div>
         </nav>
         <!-- Header-->
         <header>

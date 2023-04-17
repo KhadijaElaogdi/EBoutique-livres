@@ -11,8 +11,14 @@
         <%@include file="head.jsp" %>
     </head>
     <body>
-        <%@include file="header.jsp" %>
-        <h1>Hello World!</h1>
+        <% 
+     if(session.getAttribute("uname") != null){%>
+       <%@include file="headerConnect.jsp" %>
+    <% }
+     else{%>
+       <%@include file="header.jsp" %>
+     <%}
+      %>
         
        <!-- Section-->
         <section class="py-5">
