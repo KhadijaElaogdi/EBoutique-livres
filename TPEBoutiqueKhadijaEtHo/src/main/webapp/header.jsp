@@ -27,18 +27,11 @@
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="ProductServlet" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!--<li><hr class="dropdown-divider" /></li>-->
-<<<<<<< HEAD
                                 <li><a class="dropdown-item" href="products.jsp">Tous</a></li>
-                                <li><a class="dropdown-item" href="#!">Economique</a></li>
-                                <li><a class="dropdown-item" href="#!">Litterature</a></li>
-                                <li><a class="dropdown-item" href="#!">Philosophie</a></li>
-                                <li><a class="dropdown-item" href="#!">Histoire</a></li>
-=======
                                 <li><a class="dropdown-item" href="ProductServlet?action=economique">Economique</a></li>
                                 <li><a class="dropdown-item" href="ProductServlet?action=litterature">Litterature</a></li>
                                 <li><a class="dropdown-item" href="ProductServlet?action=philosophie">Philosophie</a></li>
                                 <li><a class="dropdown-item" href="ProductServlet?action=philosophie">Histoire</a></li>
->>>>>>> a57fcd4d8dcdfe8a03f39ec3bfaf8860e6d27133
                             </ul>
                         </li>
                     </ul>

@@ -32,10 +32,10 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!--<li><hr class="dropdown-divider" /></li>-->
                                 <li><a class="dropdown-item" href="products.jsp">Tous</a></li>
-                                <li><a class="dropdown-item" href="#!">Economique</a></li>
-                                <li><a class="dropdown-item" href="#!">Litterature</a></li>
-                                <li><a class="dropdown-item" href="#!">Philosophie</a></li>
-                                <li><a class="dropdown-item" href="#!">Histoire</a></li>
+                                <li><a class="dropdown-item" href="ProductServlet?action=economique">Economique</a></li>
+                                <li><a class="dropdown-item" href="ProductServlet?action=litterature">Litterature</a></li>
+                                <li><a class="dropdown-item" href="ProductServlet?action=philosophie">Philosophie</a></li>
+                                <li><a class="dropdown-item" href="ProductServlet?action=philosophie">Histoire</a></li>
                             </ul>
                         </li>
                     </ul>
