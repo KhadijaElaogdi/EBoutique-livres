@@ -32,17 +32,17 @@
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!--<li><hr class="dropdown-divider" /></li>-->
                                 <li><a class="dropdown-item" href="productServlet">Tous</a></li>
-                                <li><a class="dropdown-item" href="ProductServlet?action=economique">Economique</a></li>
-                                <li><a class="dropdown-item" href="ProductServlet?action=litterature">Litterature</a></li>
-                                <li><a class="dropdown-item" href="ProductServlet?action=philosophie">Philosophie</a></li>
-                                <li><a class="dropdown-item" href="ProductServlet?action=philosophie">Histoire</a></li>
+                                <li><a class="dropdown-item" href="productServlet?action=eco123">Economique</a></li>
+                                <li><a class="dropdown-item" href="productServlet?action=litt123">Litterature</a></li>
+                                <li><a class="dropdown-item" href="productServlet?action=philos123">Philosophie</a></li>
+                                <li><a class="dropdown-item" href="productServlet?action=hist123">Histoire</a></li>
                             </ul>
                         </li>
                     </ul>
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
-                            Cart
+                            <a href="panier.jsp" style="color: gold; text-decoration : none;">Panier</a>
                             <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
                         </button>
                     </form>
