@@ -35,7 +35,7 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex">
+                    <form class="d-flex" method="" action="">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             <a href="panier.jsp" style="color: gold; text-decoration : none;">Panier</a>
