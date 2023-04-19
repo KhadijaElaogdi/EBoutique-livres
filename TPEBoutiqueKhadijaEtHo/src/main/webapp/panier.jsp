@@ -4,7 +4,23 @@
     Author     : isi
 --%>
 
+<%@page import="Model.Manager.ConnectionManager"%>
+<%@page import="Model.Manager.LivreManager"%>
+<%@page import="java.util.List"%>
+<%@page import="Model.Entity.Panier"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% ArrayList<Panier> panier_list = (ArrayList<Panier>) session.getAttribute("panier-list");
+
+List<Panier> cartProduct = null;
+if (panier_list != null) {
+	//LivreManager pDao = new LivreManager(new ConnectionManager());
+	//cartProduct = pDao.getCartProducts(panier_list);
+	//double total = pDao.getTotalCartPrice(panier_list);
+	//request.setAttribute("total", total);
+	request.setAttribute("panier_list", panier_list);
+}
+%>
+
 <!DOCTYPE html>
 <html>
      <head>
@@ -42,13 +58,17 @@
 				</tr>
 			</thead>
 			<tbody>
+                            <%
+                                        if (panier_list != null) {
+					for (Panier pan : panier_list) {
+				%>
 				<tr>
-					<td>NomLivre</td>
-					<td>CategorieLivre</td>
-					<td>45.00$</td>
+					<td>NomLivre <%=pan.getTitleProd()%></td>
+					<td>CategorieLivre <%=pan.getIdCatg()%></td>
+					<td>45.00$ <%=pan.getPrix()%>$</td>
 					<td>
 						<form action="" method="post" class="form-inline">
-						<input type="hidden" name="id" value="" class="form-input">
+						<input type="hidden" name="idLivre" value="<%= pan.getIdLivre()%>" class="form-input">
 							<div class="form-group d-flex justify-content-between">
 								<a class="btn bnt-sm btn-incre" href=""><i class="fas fa-plus-square"></i></a> 
 								<input type="text" name="quantity" class="form-control"  value="1" readonly> 
@@ -58,7 +78,7 @@
 					</td>
 					<td><a href="#" class="btn btn-sm btn-danger">Supprimer</a></td>
 				</tr>
-
+                           <%}}%>
 			</tbody>
 		</table>
 	</div>

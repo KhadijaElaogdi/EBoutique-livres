@@ -5,10 +5,12 @@
 package Model.Manager;
 
 import Model.Entity.Livre;
+import Model.Entity.Panier;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,7 +19,7 @@ import java.util.logging.Logger;
  * @author isi
  */
 public class LivreManager {
-
+    
     public ArrayList<Livre> getAllLives() {
         ArrayList<Livre> lives = null;
         String query = "select * from livres";
@@ -60,5 +62,33 @@ public class LivreManager {
         return lives;
 
     }
+    
+     public List<Panier> getCartProducts(ArrayList<Panier> panierList) {
+        List<Panier> reserves = new ArrayList<>();
+        try {
+            if (panierList.size() > 0) {
+                for (Panier item : panierList) {
+                    String query = "select * from Livres where idLivre=?";
+                     PreparedStatement preparedStatement = ConnectionManager.getPs(query);
+                    preparedStatement.setString(1, item.getIdLivre());
+                    ResultSet resultSet = preparedStatement.executeQuery();
+                    while (resultSet.next()) {
+                        Panier row = new Panier();
+                        row.setIdLivre(resultSet.getString("idLivre"));
+                        row.setTitleProd(resultSet.getString("titleProd"));
+                        row.setIdCatg(resultSet.getString("idCatg"));
+                        row.setPrix(resultSet.getDouble("prix")*item.getQuantite());
+                        row.setQuantite(item.getQuantite());
+                        reserves.add(row);
+                    }
 
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+        return reserves;
+    }
 }
