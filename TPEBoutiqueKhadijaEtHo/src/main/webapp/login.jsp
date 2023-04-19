@@ -4,7 +4,16 @@
     Author     : isi
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="Model.Entity.Panier"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% ArrayList<Panier> panier_list = (ArrayList<Panier>) session.getAttribute("panier-list");
+
+List<Panier> cartProduct = null;
+if (panier_list != null) {
+	request.setAttribute("panier_list", panier_list);
+}
+%>
 <!DOCTYPE html>
 <html>
     <head>

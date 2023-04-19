@@ -24,8 +24,8 @@ public class AddToPanierServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter out = resp.getWriter();
-        ArrayList<Panier> panierList = new ArrayList<>();
+            PrintWriter out = resp.getWriter();
+            ArrayList<Panier> panierList = new ArrayList<>();
             String id = req.getParameter("id");
             Panier panier = new Panier();
             panier.setIdLivre(id);
@@ -36,14 +36,26 @@ public class AddToPanierServlet extends HttpServlet {
             if (panier_list == null) {
                 panierList.add(panier);
                 session.setAttribute("panier-list", panierList);
-                out.println("Ajout et Session bien créer");
-            }
-            else{
-                out.println("exist déjà");
-               
+                //out.println("Ajout et Session bien créer");
+                resp.sendRedirect("productServlet");
+            } else {
+                //out.println("exist déjà");
+                panierList = panier_list;
+                boolean exist = false;
+                for (Panier pan : panier_list) {
+                    if (pan.getIdLivre().equals(id)) {
+                        exist = true;
+                       // out.println("<h3 style='color:crimson; text-align: center'>Article déjà dans le panier. <a href='panier.jsp'>Aller à la page Panier </a></h3>");
+                        resp.sendRedirect("panier.jsp");
+                    }
+
+                    if (!exist) {
+                    panierList.add(panier);
+                   // out.println("Livre ajouté");
+                    resp.sendRedirect("productServlet");
+                    }       
+                }
             }
     }
-
-  
 
 }

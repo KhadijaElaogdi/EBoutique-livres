@@ -43,7 +43,7 @@
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             <a href="panier.jsp" style="color: gold; text-decoration : none;">Panier</a>
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">${panier_list.size()}</span>
                         </button>
                     </form>
                 </div>
