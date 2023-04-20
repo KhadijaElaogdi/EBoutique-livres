@@ -41,7 +41,7 @@ public class LivreManager {
     }
 
     public ArrayList<Livre> getListLivreByCategorie(String categorie) {
-        ArrayList<Livre> lives = null;
+        ArrayList<Livre> lives = new ArrayList<>();
         String query = "select * from livres where idCategorie like ?";
         PreparedStatement preparedStatement = ConnectionManager.getPs(query);
 
@@ -50,7 +50,7 @@ public class LivreManager {
             ResultSet resultSet = preparedStatement.executeQuery();
             //permet de savoir s il y a des données dans le resultset
             if (resultSet.isBeforeFirst()) {
-                lives = new ArrayList<>();
+//                lives = new ArrayList<>();
                 while (resultSet.next()) {
                     lives.add(new Livre(resultSet));
                 }
