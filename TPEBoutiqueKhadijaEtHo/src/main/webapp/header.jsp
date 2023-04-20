@@ -4,6 +4,7 @@
     Author     : isi
 --%>
 
+<%@page import="Model.Entity.Panier"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Entity.Livre"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -40,6 +41,7 @@
                             <i class="bi-cart-fill me-1"></i>
                             <a href="panier.jsp" style="color: gold; text-decoration : none;">Panier</a>
                             <span class="badge bg-dark text-white ms-1 rounded-pill">${panier_list.size()}</span>
+                            
                         </button>
                     </form>
                 </div>

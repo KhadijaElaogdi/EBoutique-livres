@@ -7,6 +7,7 @@ package controler;
 import Model.Entity.Panier;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -24,11 +25,22 @@ public class AddToPanierServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            PrintWriter out = resp.getWriter();
+         PrintWriter out = resp.getWriter();
+        try {
             ArrayList<Panier> panierList = new ArrayList<>();
             String id = req.getParameter("id");
+            
+            String nom = req.getParameter("nom");
+            String catg = req.getParameter("catg");
+            double prix = Double.parseDouble(req.getParameter("prix"));
+            
             Panier panier = new Panier();
             panier.setIdLivre(id);
+            
+            panier.setTitleProd(nom);
+            panier.setIdCatg(catg);
+            panier.setPrix(prix);
+            
             panier.setQuantite(1);
             
             HttpSession session = req.getSession();
@@ -56,6 +68,9 @@ public class AddToPanierServlet extends HttpServlet {
                     }       
                 }
             }
+            
+        } catch (Exception e) {
+            out.println(e);
+        }
     }
-
 }

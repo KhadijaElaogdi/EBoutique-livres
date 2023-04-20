@@ -63,9 +63,9 @@ if (panier_list != null) {
 					for (Panier pan : panier_list) {
 				%>
 				<tr>
-					<td>NomLivre <%=pan.getTitleProd()%></td>
-					<td>CategorieLivre <%=pan.getIdCatg()%></td>
-					<td>45.00$ <%=pan.getPrix()%>$</td>
+					<td><%=pan.getTitleProd()%></td>
+					<td><%=pan.getIdCatg()%></td>
+					<td><%=pan.getPrix()%>$</td>
 					<td>
 						<form action="" method="post" class="form-inline">
 						<input type="hidden" name="idLivre" value="<%= pan.getIdLivre()%>" class="form-input">
