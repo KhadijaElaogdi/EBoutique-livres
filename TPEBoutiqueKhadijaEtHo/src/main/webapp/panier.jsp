@@ -76,7 +76,7 @@ if (panier_list != null) {
 							</div>
 						</form>
 					</td>
-					<td><a href="#" class="btn btn-sm btn-danger">Supprimer</a></td>
+					<td><a href="SupprimerDansPanier?id=<%=pan.getIdLivre() %>" class="btn btn-sm btn-danger">Supprimer</a></td>
 				</tr>
                            <%}}%>
 			</tbody>
