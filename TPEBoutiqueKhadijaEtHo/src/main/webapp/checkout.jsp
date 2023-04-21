@@ -36,7 +36,7 @@
                     <%for (Panier panier : panier_list) {%>
                     <tr>
                         <td><%=panier.getTitleProd() %></td>
-                        <td><%=panier.get %></td>
+                        <td><%= %></td>
                         <td></td>
                         <td></td>
                         <td></td>
