@@ -90,28 +90,18 @@ public class LivreManager {
         try {
             if (panierList.size() > 0) {
                 for (Panier item : panierList) {
-<<<<<<< HEAD
-                    String query = "select * from Livres where idLivre=?";
-                    PreparedStatement preparedStatement = ConnectionManager.getPs(query);
-=======
+
                     String query = "select * from Livres where idLivre like ?";
                      PreparedStatement preparedStatement = ConnectionManager.getPs(query);
->>>>>>> 56b9bcc8a07213b8a0cc4c6498da8fec00856996
                     preparedStatement.setString(1, item.getIdLivre());
                     ResultSet resultSet = preparedStatement.executeQuery();
                     while (resultSet.next()) {
                         Panier row = new Panier();
                         row.setIdLivre(resultSet.getString("idLivre"));
-<<<<<<< HEAD
-                        row.setTitleProd(resultSet.getString("titleProd"));
-                        row.setIdCatg(resultSet.getString("idCatg"));
-                        row.setPrix(resultSet.getDouble("prix") * item.getQuantite());
-=======
                         row.setTitleProd(resultSet.getString("libelleProd"));
                         row.setIdCatg(resultSet.getString("idCategorie"));
                         row.setPrix(resultSet.getDouble("prix")*item.getQuantite());
->>>>>>> 56b9bcc8a07213b8a0cc4c6498da8fec00856996
-                        row.setQuantite(item.getQuantite());
+//                        row.setQuantite(item.getQuantite());
                         reserves.add(row);
                     }
 

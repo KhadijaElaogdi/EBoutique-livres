@@ -16,20 +16,18 @@
 
 <!DOCTYPE html>
 <html>
-     <head>
+    <head>
         <%@include file="head.jsp" %>
     </head>
     <body>
-        <% 
-     if(session.getAttribute("uname") != null){%>
-       <%@include file="headerConnect.jsp" %>
-    <% }
-     else{%>
-       <%@include file="header.jsp" %>
-     <%}
-      %>
-        
-       <!-- Section-->
+        <%            if (session.getAttribute("uname") != null) {%>
+        <%@include file="headerConnect.jsp" %>
+        <% } else {%>
+        <%@include file="header.jsp" %>
+        <%}
+        %>
+
+        <!-- Section-->
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
@@ -60,16 +58,12 @@
                                     </div>
                                     <!-- Product price-->
                                     <span class="text-muted"><%=list.getPrix()%>0$</span>
-                                    
+
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-<<<<<<< HEAD
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="panier?id=<%= list.getIdLivre() %>">Add to cart</a></div>
-=======
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="AddToPanierServlet?id=<%= list.getIdLivre() %>&nom=<%= list.getTitleProd()%>&catg=<%= list.getIdCatg()%>&prix=<%= list.getPrix()%>">Add to cart</a></div>
->>>>>>> 56b9bcc8a07213b8a0cc4c6498da8fec00856996
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="AddToPanierServlet?id=<%= list.getIdLivre()%>&nom=<%= list.getTitleProd()%>&catg=<%= list.getIdCatg()%>&prix=<%= list.getPrix()%>">Add to cart</a></div>
                             </div>
 
                         </div>
