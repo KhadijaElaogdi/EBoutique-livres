@@ -4,6 +4,7 @@
  */
 package controler;
 
+import Model.Manager.ConnectionManager;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -27,21 +28,12 @@ public class login extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         try{
+        //recuperer les param dans le form login    
         String uname = req.getParameter("uname");
         String psw = req.getParameter("psw");
-            
-        Class.forName("org.mariadb.jdbc.Driver");  //charger le diver MariaDB
-        String urlServeur="jdbc:mariadb://localhost:3310/bdEBoutiqueLivres";
-        //localhost est l'URL de connexion, ca pourrait aussi être une adresse ip
-        //3310 est le port du serveur mariaDB
-        //maBd le nom de la base de donnée que l'on veut accéder.
-        String identifiant = "root";
-        String motDePasse = "abc123...";
-            Connection connection = DriverManager.getConnection(urlServeur, identifiant, motDePasse);
-            
             //on a fait le code pre
             String query = "SELECT idClient FROM clients WHERE prenom = ? and password = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
+             PreparedStatement preparedStatement = ConnectionManager.getPs(query);
             preparedStatement.setString(1, uname); // permet de remplacer le premier ?
             preparedStatement.setString(2, psw); // permet de remplacer le deuxième ?
             
@@ -54,7 +46,7 @@ public class login extends HttpServlet {
                 session.setAttribute("msg","UserName ou Mot de passe erroné !");
                 resp.sendRedirect("login.jsp");
             }
-            connection.close();
+            ConnectionManager.close();
         }
         catch(Exception e){
             System.out.print(e);

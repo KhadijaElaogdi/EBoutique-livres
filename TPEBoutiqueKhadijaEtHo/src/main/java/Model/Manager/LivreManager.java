@@ -19,8 +19,8 @@ import java.util.logging.Logger;
  * @author isi
  */
 public class LivreManager {
-    
-    public ArrayList<Livre> getAllLives() {
+
+    public static ArrayList<Livre> getAllLives() {
         ArrayList<Livre> lives = null;
         String query = "select * from livres";
         PreparedStatement preparedStatement = ConnectionManager.getPs(query);
@@ -62,12 +62,35 @@ public class LivreManager {
         return lives;
 
     }
-    
-     public List<Panier> getCartProducts(ArrayList<Panier> panierList) {
+
+    public Livre getLivreById(String idLivre) {
+        Livre unLive = null;
+        String query = "select * from livres where idLivre like ?";
+        PreparedStatement preparedStatement = ConnectionManager.getPs(query);
+
+        try {
+            preparedStatement.setString(1, idLivre);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            //permet de savoir s il y a des données dans le resultset
+            if (resultSet.isBeforeFirst()) {
+
+                while (resultSet.next()) {
+                    unLive = new Livre(resultSet);
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LivreManager.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ConnectionManager.close();
+        return unLive;
+    }
+
+    public List<Panier> getCartProducts(ArrayList<Panier> panierList) {
         List<Panier> reserves = new ArrayList<>();
         try {
             if (panierList.size() > 0) {
                 for (Panier item : panierList) {
+
                     String query = "select * from Livres where idLivre like ?";
                      PreparedStatement preparedStatement = ConnectionManager.getPs(query);
                     preparedStatement.setString(1, item.getIdLivre());
@@ -78,7 +101,7 @@ public class LivreManager {
                         row.setTitleProd(resultSet.getString("libelleProd"));
                         row.setIdCatg(resultSet.getString("idCategorie"));
                         row.setPrix(resultSet.getDouble("prix")*item.getQuantite());
-                        row.setQuantite(item.getQuantite());
+//                        row.setQuantite(item.getQuantite());
                         reserves.add(row);
                     }
 

@@ -8,7 +8,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Entity.Livre"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +24,7 @@
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="login.jsp">Login</a></li>
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="inscription.jsp">Sign up</a></li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="productServlet" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
+                            <a class="nav-link dropdown-toggle" style="color: black" id="navbarDropdown" href="productServlet" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!--<li><hr class="dropdown-divider" /></li>-->
                                 <li><a class="dropdown-item" href="productServlet">Tous</a></li>
@@ -40,7 +39,7 @@
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             <a href="panier.jsp" style="color: gold; text-decoration : none;">Panier</a>
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">${panier_list.size()}</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">${panier_list.size() != null ? panier_list.size() : "0"}</span>
                             
                         </button>
                     </form>

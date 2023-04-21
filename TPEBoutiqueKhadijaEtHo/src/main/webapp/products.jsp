@@ -13,29 +13,21 @@
 
 
 %>
-<% ArrayList<Panier> panier_list = (ArrayList<Panier>) session.getAttribute("panier-list");
 
-List<Panier> cartProduct = null;
-if (panier_list != null) {
-	request.setAttribute("panier_list", panier_list);
-}
-%>
 <!DOCTYPE html>
 <html>
-     <head>
+    <head>
         <%@include file="head.jsp" %>
     </head>
     <body>
-        <% 
-     if(session.getAttribute("uname") != null){%>
-       <%@include file="headerConnect.jsp" %>
-    <% }
-     else{%>
-       <%@include file="header.jsp" %>
-     <%}
-      %>
-        
-       <!-- Section-->
+        <%            if (session.getAttribute("uname") != null) {%>
+        <%@include file="headerConnect.jsp" %>
+        <% } else {%>
+        <%@include file="header.jsp" %>
+        <%}
+        %>
+
+        <!-- Section-->
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
@@ -66,12 +58,12 @@ if (panier_list != null) {
                                     </div>
                                     <!-- Product price-->
                                     <span class="text-muted"><%=list.getPrix()%>0$</span>
-                                    
+
                                 </div>
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="AddToPanierServlet?id=<%= list.getIdLivre() %>&nom=<%= list.getTitleProd()%>&catg=<%= list.getIdCatg()%>&prix=<%= list.getPrix()%>">Add to cart</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="AddToPanierServlet?id=<%= list.getIdLivre()%>&nom=<%= list.getTitleProd()%>&catg=<%= list.getIdCatg()%>&prix=<%= list.getPrix()%>">Add to cart</a></div>
                             </div>
 
                         </div>

@@ -4,7 +4,10 @@
     Author     : isi
 --%>
 
+<%@page import="Model.Entity.Panier"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <% 
     String login = "";
      if(session.getAttribute("uname") != null){
@@ -28,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
+                            <a class="nav-link dropdown-toggle" style="color: black" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categorie</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <!--<li><hr class="dropdown-divider" /></li>-->
                                 <li><a class="dropdown-item" href="productServlet">Tous</a></li>
@@ -42,7 +45,7 @@
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
-                            <a href="panier.jsp" style="color: gold; text-decoration : none;">Panier</a>
+                            <a href="panier?id" style="color: gold; text-decoration : none;">Panier</a>
                             <span class="badge bg-dark text-white ms-1 rounded-pill">${panier_list.size()}</span>
                         </button>
                     </form>
@@ -58,12 +61,7 @@
             <div>
                 <img src="img/bonLivre.jpg" alt="bonLivre" width="1350px" height="450px">
             </div>
-            <!--            <div class="container px-4 px-lg-5 my-5">
-                            <div class="text-center text-white">
-                                <h1 class="display-4 fw-bolder">Shop in style</h1>
-                                <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
-                            </div>
-                        </div>-->
+          
         </header>
     </body>
 </html>
