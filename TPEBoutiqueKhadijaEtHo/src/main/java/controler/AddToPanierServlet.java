@@ -73,4 +73,5 @@ public class AddToPanierServlet extends HttpServlet {
             out.println(e);
         }
     }
+    
 }

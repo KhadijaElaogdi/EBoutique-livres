@@ -11,6 +11,12 @@
 <%@page import="Model.Entity.Panier"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%ArrayList<Panier> panier_list = (ArrayList<Panier>) session.getAttribute("panier-list");%>
+<% 
+List<Panier> cartProduct = null;
+if (panier_list != null) {
+	request.setAttribute("panier_list", panier_list);
+}
+%>
 
 <!DOCTYPE html>
 <html>
@@ -60,9 +66,9 @@
                             <form action="" method="post" class="form-inline">
                                 <input type="hidden" name="idLivre" value="<%= pan.getIdLivre()%>" class="form-input">
                                 <div class="form-group d-flex justify-content-between">
-                                    <a class="btn bnt-sm btn-incre" href=""><i class="fas fa-plus-square"></i></a> 
-                                    <input type="text" name="quantity" class="form-control"  value="1" readonly> 
-                                    <a class="btn btn-sm btn-decre" href=""><i class="fas fa-minus-square"></i></a>
+                                    <a class="btn bnt-sm btn-incre" href="QuantiteServlet?action=inc&id=<%=pan.getIdLivre()%>"><i class="fas fa-plus-square"></i></a> 
+                                    <input type="text" name="quantity" class="form-control"  value="<%=pan.getQuantite()%>" readonly> 
+                                    <a class="btn btn-sm btn-decre" href="QuantiteServlet?action=dec&id=<%=pan.getIdLivre()%>"><i class="fas fa-minus-square"></i></a>
                                 </div>
                             </form>
                         </td>
