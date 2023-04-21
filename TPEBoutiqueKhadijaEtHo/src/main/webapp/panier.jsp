@@ -40,6 +40,7 @@
         %>
 
         <div class="container my-3">
+<<<<<<< HEAD
             <div class="d-flex py-3"><h3>Total Price: 00.00$ </h3> <a class="mx-3 btn btn-primary" href="">Check Out</a></div>
             <table class="table table-light">
                 <thead>
@@ -74,6 +75,44 @@
                 </tbody>
             </table>
         </div>
+=======
+		<div class="d-flex py-3"><h3>Total Price: 00.00$ </h3> <a class="mx-3 btn btn-primary" href="">Check Out</a></div>
+		<table class="table table-light">
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Category</th>
+					<th scope="col">Price</th>
+					<th scope="col">Buy Now</th>
+					<th scope="col">Cancel</th>
+				</tr>
+			</thead>
+			<tbody>
+                            <%
+                                        if (panier_list != null) {
+					for (Panier pan : panier_list) {
+				%>
+				<tr>
+					<td><%=pan.getTitleProd()%></td>
+					<td><%=pan.getIdCatg()%></td>
+					<td><%=pan.getPrix()%>$</td>
+					<td>
+						<form action="" method="post" class="form-inline">
+						<input type="hidden" name="idLivre" value="<%= pan.getIdLivre()%>" class="form-input">
+							<div class="form-group d-flex justify-content-between">
+								<a class="btn bnt-sm btn-incre" href=""><i class="fas fa-plus-square"></i></a> 
+								<input type="text" name="quantity" class="form-control"  value="1" readonly> 
+								<a class="btn btn-sm btn-decre" href=""><i class="fas fa-minus-square"></i></a>
+							</div>
+						</form>
+					</td>
+					<td><a href="SupprimerDansPanier?id=<%=pan.getIdLivre() %>" class="btn btn-sm btn-danger">Supprimer</a></td>
+				</tr>
+                           <%}}%>
+			</tbody>
+		</table>
+	</div>
+>>>>>>> 56b9bcc8a07213b8a0cc4c6498da8fec00856996
 
         <%@include file="footer.jsp" %>
     </body>
