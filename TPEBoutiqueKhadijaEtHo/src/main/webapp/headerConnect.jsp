@@ -42,7 +42,7 @@
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
-                            <a href="panier.jsp" style="color: gold; text-decoration : none;">Panier</a>
+                            <a href="panier?id" style="color: gold; text-decoration : none;">Panier</a>
                             <span class="badge bg-dark text-white ms-1 rounded-pill">${panier_list.size()}</span>
                         </button>
                     </form>
@@ -58,12 +58,7 @@
             <div>
                 <img src="img/bonLivre.jpg" alt="bonLivre" width="1350px" height="450px">
             </div>
-            <!--            <div class="container px-4 px-lg-5 my-5">
-                            <div class="text-center text-white">
-                                <h1 class="display-4 fw-bolder">Shop in style</h1>
-                                <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
-                            </div>
-                        </div>-->
+          
         </header>
     </body>
 </html>

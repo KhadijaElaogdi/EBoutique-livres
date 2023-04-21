@@ -13,13 +13,7 @@
 
 
 %>
-<% ArrayList<Panier> panier_list = (ArrayList<Panier>) session.getAttribute("panier-list");
 
-List<Panier> cartProduct = null;
-if (panier_list != null) {
-	request.setAttribute("panier_list", panier_list);
-}
-%>
 <!DOCTYPE html>
 <html>
      <head>
@@ -71,7 +65,7 @@ if (panier_list != null) {
                             </div>
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="AddToPanierServlet?id=<%= list.getIdLivre() %>">Add to cart</a></div>
+                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="panier?id=<%= list.getIdLivre() %>">Add to cart</a></div>
                             </div>
 
                         </div>
