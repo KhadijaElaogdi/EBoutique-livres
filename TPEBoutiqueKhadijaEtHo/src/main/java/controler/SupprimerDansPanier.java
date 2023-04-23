@@ -30,7 +30,7 @@ public class SupprimerDansPanier extends HttpServlet {
                      ArrayList<Panier> panier_list = (ArrayList<Panier>) req.getSession().getAttribute("panier-list");
                      if (panier_list != null) {
                         for (Panier p : panier_list) {
-                           if (p.getIdLivre() == supId){
+                           if (p.getIdLivre().equals(supId) ){
                                  panier_list.remove(panier_list.indexOf(p));
                                      break;
                            }
